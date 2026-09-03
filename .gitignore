@@ -2,3 +2,5 @@
 node_modules/
 
 WanderLust_Project_Report.docx
+.vercel
+.env*

@@ -6,7 +6,7 @@ const router = express.Router();
 const asyncWrap = require("../utils/asyncWrap");
 const ExpressError = require("../utils/expressError");
 const Listing = require("../models/listing");
-const { isLoggedIn, isOwner, validateListing } = require("../middleware");
+const { isLoggedIn, isOwner, validateListing } = require("../authMiddleware");
 const listingController = require("../controllers/listings");
 const multer = require("multer");
 const { storage } = require("../cloudConfig");
@@ -18,7 +18,7 @@ router
   .post(
     isLoggedIn,
     upload.single("listing[image]"), //we are send the image file to the cloudinary storage in "wanderlust_dev" file.
-    asyncWrap(listingController.createListing)
+    asyncWrap(listingController.createListing),
   ); //craete (perform operation)
 
 router.get("/new", isLoggedIn, (req, res) => {
@@ -28,7 +28,7 @@ router.get("/new", isLoggedIn, (req, res) => {
 // SHOW - Display a Single Listing
 router.get(
   "/:id/show", // "/listings/:id" this url will also works cause both are rendering the same page
-  asyncWrap(listingController.showListing)
+  asyncWrap(listingController.showListing),
 );
 
 // EDIT - Form to Edit Listing
@@ -36,7 +36,7 @@ router.get(
   "/:id/edit", // "/listings/:id" this url will also works cause both are rendering the same page
   isLoggedIn,
   isOwner,
-  asyncWrap(listingController.editListing)
+  asyncWrap(listingController.editListing),
 );
 
 router
@@ -45,7 +45,7 @@ router
     isLoggedIn,
     isOwner,
     upload.single("listing[image]"),
-    asyncWrap(listingController.updateListing)
+    asyncWrap(listingController.updateListing),
   ) // UPDATE - Apply Edits to Listing
   .delete(isLoggedIn, isOwner, asyncWrap(listingController.deleteListing)); //  DELETE - Remove Listing
 

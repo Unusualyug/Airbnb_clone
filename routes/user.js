@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require("../models/user");
 const asyncWrap = require("../utils/asyncWrap");
 const passport = require("passport");
-const { saveRedirect } = require("../middleware");
+const { saveRedirect } = require("../authMiddleware");
 const userController = require("../controllers/users");
 
 router
@@ -21,7 +21,7 @@ router
       failureFlash: true,
     }),
     saveRedirect, // {{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{    Ensure this middleware is applied before redirect     }}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
-    userController.logIn
+    userController.logIn,
   );
 
 router.get("/logout", userController.logOut);

@@ -7,7 +7,7 @@ const Listing = require("../models/listing");
 
 const asyncWrap = require("../utils/asyncWrap");
 const ExpressError = require("../utils/expressError");
-const { validateReview, isLoggedIn, isReviewOther } = require("../middleware");
+const { validateReview, isLoggedIn, isReviewOther } = require("../authMiddleware");
 const reviewController = require("../controllers/reviews");
 // REVIEWS
 
