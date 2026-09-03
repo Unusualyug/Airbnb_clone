@@ -1,59 +1,68 @@
-# 🏡 WanderLust — Airbnb Clone
-
-A full-stack property listing and review platform inspired by Airbnb, built with **Node.js, Express, MongoDB, and EJS**. Users can sign up, browse listings, create their own property listings with images, and leave ratings and reviews.
-
-> 🔗 **Repository:** [github.com/Unusualyug/Airbnb_clone](https://github.com/Unusualyug/Airbnb_clone)
+Then open **http://localhost:3000** in your browser (it will automatically redirect to `/listings`).
 
 ---
 
-## 📸 Screenshots
+## 🧭 Usage
 
-| Homepage                            | Create Listing             |
-| ----------------------------------- | -------------------------- |
-| Listings grid with category filters | Form to add a new property |
-
-| Sign Up               | Log In               |
-| --------------------- | -------------------- |
-| New user registration | Returning user login |
-
-_(Add your screenshots to a `/screenshots` folder and update the image links below once uploaded to GitHub)_
-
-```md
-![Homepage](./screenshots/home.png)
-![Create Listing](./screenshots/create-listing.png)
-```
+1. **Sign up** for a new account, or **log in** if you already have one.
+2. Browse listings on the homepage, or filter by category (Rooms, Beach, Mountains, etc.).
+3. Click a listing to view details, leave a review, or rate it.
+4. Once logged in, click **"Create Listing"** to add your own property (title, description, price, location, and image).
+5. Owners can edit or delete their own listings and reviews.
 
 ---
 
-## ✨ Features
+## 🚀 Deployment
 
-- 🔐 **User Authentication** — secure signup/login using Passport.js (Local Strategy), passwords are hashed and never stored in plain text
-- 🏠 **Full CRUD for Listings** — create, view, edit, and delete property listings
-- ☁️ **Cloud Image Uploads** — listing images are uploaded via Multer and stored on Cloudinary (not local disk)
-- ⭐ **Reviews & Ratings** — users can leave a star rating (1–5) and a comment on any listing
-- 🗑️ **Cascading Deletes** — deleting a listing automatically removes its associated reviews
-- 🛡️ **Authorization Checks** — only the listing/review owner can edit or delete their own content
-- 💰 **Dynamic Price Toggle** — homepage toggle recalculates listing prices with 18% GST applied
-- 💬 **Flash Messages** — real-time success/error feedback after actions like login, signup, or listing creation
-- ⚠️ **Centralized Error Handling** — custom `ExpressError` class + error-handling middleware for clean error pages
+This project is server-rendered (EJS, not a separate React frontend), so both the backend and the "frontend" run from the same Express server — no separate frontend build/start step is needed.
+
+### Deployed on Render
+
+This project is deployed on [Render](https://render.com) as a persistent Node.js web service — no code restructuring was required (unlike serverless platforms like Vercel).
+
+🔗 **Live Link:** [https://airbnb-clone-1-p70v.onrender.com/listings](https://airbnb-clone-1-p70v.onrender.com/listings)
+
+**Render deployment settings used:**
+
+| Setting        | Value               |
+| -------------- | ------------------- |
+| Root Directory | _(blank / not set)_ |
+| Build Command  | `npm install`       |
+| Start Command  | `node app.js`       |
+
+**Environment Variables set on Render** (Dashboard → your service → Environment):
+
+| Key           | Value                                |
+| ------------- | ------------------------------------ |
+| `ATLASDB_URL` | Your MongoDB Atlas connection string |
+| `SECRET`      | Random session secret string         |
+| `CLOUD_NAME`  | Your Cloudinary cloud name           |
+| `API_KEY`     | Your Cloudinary API key              |
+| `API_SECRET`  | Your Cloudinary API secret           |
+| `NODE_ENV`    | `production`                         |
+
+> ⚠️ Note: Render's free tier spins down after periods of inactivity — the first request after idle time may take 30–50 seconds to respond while the server wakes up.
 
 ---
 
-## 🛠️ Tech Stack
+## 🧠 Learnings & Challenges
 
-| Layer          | Technology                                                |
-| -------------- | --------------------------------------------------------- |
-| Runtime        | Node.js                                                   |
-| Framework      | Express.js                                                |
-| Templating     | EJS + EJS-Mate (layouts)                                  |
-| Database       | MongoDB Atlas + Mongoose                                  |
-| Auth           | Passport.js (`passport-local`, `passport-local-mongoose`) |
-| Sessions       | `express-session` (signed cookies)                        |
-| File Uploads   | Multer + Cloudinary                                       |
-| Validation     | Joi                                                       |
-| Flash Messages | connect-flash                                             |
-| Styling        | Custom CSS                                                |
+- Implementing session-based authentication with Passport.js and understanding how signed cookies + server-side sessions work together
+- Structuring a growing Express app cleanly using the MVC pattern, custom middleware, and modular routers
+- Uploading files directly to Cloudinary (instead of local disk) to keep the app deployment-friendly
+- Using Mongoose middleware hooks to maintain data integrity (e.g., cascading review deletion)
+- Debugging real-world deployment issues — IP whitelisting on MongoDB Atlas, environment variable configuration, and Node version mismatches on hosting platforms
+- Using a MongoDB-backed session store (`connect-mongo`) instead of in-memory sessions for production reliability
 
 ---
 
-## 📂 Project Structure
+## 📄 License
+
+This project was built for educational/portfolio purposes.
+
+---
+
+## 👤 Author
+
+**Yug Lakhani**
+GitHub: [@Unusualyug](https://github.com/Unusualyug)
