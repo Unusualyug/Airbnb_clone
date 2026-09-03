@@ -63,7 +63,7 @@ app.use(
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true, //prevents from the cross-scripting attecks
     },
-  })
+  }),
 );
 
 app.use(flash());
@@ -80,6 +80,11 @@ app.use((req, res, next) => {
 
   res.locals.currentUser = req.user; //used to ckeck the user is logged in or not. and pass it to the navbar.ejs
   next();
+});
+
+// 👇 ADD THIS
+app.get("/", (req, res) => {
+  res.redirect("/listings");
 });
 
 // app.get("/demouser", async (req, res) => {
