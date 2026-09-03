@@ -1,0 +1,173 @@
+/* fonts */
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.container {
+  flex: 1;
+}
+
+h1 {
+  font-weight: 800; /* Extra Bold */
+}
+
+p {
+  font-weight: 400; /* Regular */
+}
+
+em {
+  font-style: italic; /* Italic text */
+}
+
+.light-text {
+  font-weight: 300; /* Light */
+}
+
+.bold-text {
+  font-weight: 700; /* Bold */
+}
+
+/* navbar */
+
+.navbar {
+  border-bottom: 2px solid black;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5); /* Black shadow only at the bottom */
+}
+
+/* footer */
+
+.f-info-links a {
+  text-decoration: none;
+  color: black;
+}
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+.f-info-links {
+  width: 100%;
+  text-align: center;
+}
+.f-info-socials {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  color: black !important;
+}
+.f-info {
+  display: flex;
+  height: 8rem;
+  background-color: aliceblue;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* cards */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+  opacity: 1;
+}
+.card:hover {
+  opacity: 0.8;
+  background-color: white;
+  cursor: pointer;
+}
+.card-img-top {
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+.card-body {
+  padding: 0;
+}
+
+.card-text .title {
+  font-weight: 600;
+}
+.listing-link {
+  text-decoration: none;
+}
+.card {
+  height: 100%;
+}
+
+/* show-image */
+.show-img {
+  height: 30vh;
+}
+.two-btn {
+  margin-top: 20px;
+  display: flex;
+  width: 200px;
+  margin-left: 12rem;
+  justify-content: space-evenly;
+}
+
+.add-btn {
+  background-color: #fe424d;
+  border-style: none;
+}
+.review-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to new row */
+  justify-content: center; /* Center align cards */
+  gap: 20px; /* Spacing between cards */
+  padding: 20px;
+}
+
+.review-card {
+  flex: 1 1 calc(33.333% - 20px); /* Ensures minimum 3 cards per row */
+  max-width: calc(38.333% - 25px); /* Prevents cards from growing too large */
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-left: 5px solid #fe424d;
+  transition: transform 0.3s ease-in-out;
+}
+
+.review-card:hover {
+  transform: scale(1.03);
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.review-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.review-rating {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffb400;
+}
+
+.review-text {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .review-card {
+    flex: 1 1 calc(50% - 20px); /* 2 cards per row on medium screens */
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .review-card {
+    flex: 1 1 100%; /* 1 card per row on small screens */
+    max-width: 100%;
+  }
+}

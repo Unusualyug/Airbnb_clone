@@ -1,0 +1,134 @@
+<style>
+  .footer {
+    background-color: #f7f7f7;
+    padding: 40px 20px;
+    color: #333;
+    font-family: "Arial", sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  /* Footer Left */
+  .footer-left {
+    flex: 1;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .footer-left .f-info-links a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .footer-left .f-info-links a:hover {
+    color: #0077b5; /* Airbnb-inspired hover color */
+  }
+
+  /* Footer Center */
+  .footer-center {
+    flex: 1;
+    text-align: center;
+  }
+
+  .footer-center .footer-logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .footer-center p {
+    color: #777;
+  }
+
+  /* Footer Right */
+  .footer-right {
+    flex: 1;
+    text-align: right;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .social-icon {
+    font-size: 20px;
+    margin: 0 15px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  .social-icon:hover {
+    color: #0077b5; /* Airbnb-inspired hover color */
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      flex: none;
+      margin-bottom: 20px;
+    }
+  }
+</style>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <p>&copy; 2025 Your Company</p>
+      <p class="f-info-links">
+        <a href="/about">About</a> | <a href="/help">Help</a> |
+        <a href="/Policy">Policy</a> |
+        <a href="">Privacy</a>
+      </p>
+    </div>
+    <div class="footer-center">
+      <p class="footer-logo">Airbnb</p>
+      <p>Delivering quality services worldwide.</p>
+    </div>
+    <div class="footer-right">
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/airbnb"
+          target="_blank"
+          class="social-icon"
+        >
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://x.com/airbnb" target="_blank" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/airbnb/"
+          target="_blank"
+          class="social-icon"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/company/airbnb"
+          target="_blank"
+          class="social-icon"
+        >
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
